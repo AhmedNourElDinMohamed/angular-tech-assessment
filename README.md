@@ -31,6 +31,7 @@ A modern Angular 19 application for managing products and users with authenticat
 
 4. **Open your browser**
    Navigate to `http://localhost:4200/`
+   Enter any username and password to login (Fake Login)
 
 ### Available Scripts
 
