@@ -7,7 +7,7 @@
         <div class="card-body p-4">
           <h3 class="card-title text-center mb-4">Login</h3>
 
-          <form (ngSubmit)="onSubmit()">
+          <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
             <div class="mb-3">
               <label for="username" class="form-label">Username</label>
               <input
@@ -16,8 +16,22 @@
                 id="username"
                 placeholder="Enter your username"
                 required
-                [(ngModel)]="username"
+                [(ngModel)]="user.username"
+                name="username"
+                required
+                #username="ngModel"
+                [ngClass]="{
+                  'is-invalid': username.invalid && username.touched
+                }"
+                minlength="3"
               />
+              @if (username.invalid && username.touched) {
+              <div class="invalid-feedback">
+                @if (username.errors?.['required']) { Username is required } @if
+                (username.errors?.['minlength']) { Username must be at least 3
+                characters long }
+              </div>
+              }
             </div>
 
             <div class="mb-3">
@@ -28,10 +42,23 @@
                 id="password"
                 placeholder="Enter your password"
                 required
-                [(ngModel)]="password"
+                [(ngModel)]="user.password"
+                name="password"
+                required
+                #password="ngModel"
+                [ngClass]="{
+                  'is-invalid': password.invalid && password.touched
+                }"
+                minlength="3"
               />
             </div>
-
+            @if (password.invalid && password.touched) {
+            <div class="invalid-feedback">
+              @if (password.errors?.['required']) { Password is required } @if
+              (password.errors?.['minlength']) { Password must be at least 3
+              characters long }
+            </div>
+            }
             <div class="mb-3 form-check">
               <input type="checkbox" class="form-check-input" id="rememberMe" />
               <label class="form-check-label" for="rememberMe">
@@ -40,7 +67,13 @@
             </div>
 
             <div class="d-grid">
-              <button type="submit" class="btn btn-primary">Login</button>
+              <button
+                type="submit"
+                class="btn btn-primary"
+                [disabled]="loginForm.invalid"
+              >
+                Login
+              </button>
             </div>
 
             <div class="text-center mt-3">
