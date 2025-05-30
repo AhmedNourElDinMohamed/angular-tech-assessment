@@ -1,0 +1,148 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title">Create Product</h5>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Form Inputs -->
+      <div class="row g-3">
+        <div class="ps-2">
+          <div class="col-xxl-12 mb-2">
+            <div>
+              <label for="title" class="form-label">Title</label>
+              <input
+                id="title"
+                type="text"
+                class="form-control"
+                placeholder="Product Title"
+                formControlName="title"
+                [class.is-invalid]="title?.invalid && title?.dirty"
+                [class.is-valid]="title?.valid"
+              />
+            </div>
+            <!-- Validation messages -->
+            @if (title?.touched || title?.dirty) {
+            <div>
+              @if (title?.errors?.['required']) {
+              <small class="text-danger">
+                Category English title is required.
+              </small>
+              }
+            </div>
+            }
+          </div>
+        </div>
+
+        <div class="col-xxl-12 mb-2">
+          <div>
+            <label for="price" class="form-label">Price</label>
+            <input
+              id="price"
+              type="number"
+              class="form-control"
+              placeholder="Product Price"
+              formControlName="price"
+              [class.is-invalid]="price?.invalid && price?.dirty"
+              [class.is-valid]="price?.valid"
+            />
+          </div>
+          <!-- Validation messages -->
+          @if (price?.touched || price?.dirty) {
+          <div>
+            @if (price?.errors?.['required']) {
+            <small class="text-danger">Price is required.</small>
+            }
+          </div>
+          }
+        </div>
+
+        <div class="col-xxl-12 mb-2">
+          <div>
+            <label for="description" class="form-label">Description</label>
+            <textarea
+              id="description"
+              class="form-control"
+              placeholder="Product Description"
+              formControlName="description"
+              [class.is-invalid]="description?.invalid && description?.dirty"
+              [class.is-valid]="description?.valid"
+            ></textarea>
+          </div>
+          <!-- Validation messages -->
+          @if (description?.touched || description?.dirty) {
+          <div>
+            @if (description?.errors?.['required']) {
+            <small class="text-danger">Description is required.</small>
+            }
+          </div>
+          }
+        </div>
+
+        <div class="col-xxl-12 mb-2">
+          <div>
+            <label for="image" class="form-label">Image URL</label>
+            <input
+              id="image"
+              type="url"
+              class="form-control"
+              placeholder="Product Image URL"
+              formControlName="image"
+            />
+          </div>
+
+          <!-- Validation messages -->
+          @if (image?.touched || image?.dirty) {
+          <div>
+            @if (image?.errors?.['required']) {
+            <small class="text-danger">Image URL is required.</small>
+            }
+          </div>
+          }
+        </div>
+
+        <div class="col-xxl-12 mb-2">
+          <div>
+            <label for="category" class="form-label">Category</label>
+            <input
+              id="category"
+              type="text"
+              class="form-control"
+              placeholder="Product Category"
+              formControlName="category"
+            />
+          </div>
+
+          <!-- Validation messages -->
+          @if (category?.touched || category?.dirty) {
+          <div>
+            @if (category?.errors?.['required']) {
+            <small class="text-danger">Category is required.</small>
+            }
+          </div>
+          }
+        </div>
+
+        <!-- Form Buttons -->
+        <div class="col-lg-12">
+          <div class="hstack gap-2 justify-content-end">
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="closeModal()"
+            >
+              Close
+            </button>
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="isLoading()"
+            >
+              {{ isLoading() ? "Loading..." : "Submit" }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

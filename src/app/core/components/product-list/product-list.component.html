@@ -1,0 +1,7 @@
+<div class="row g-4">
+  @for (productItem of products(); track productItem.id) {
+  <div class="col-md-4">
+    <app-product [product]="productItem"></app-product>
+  </div>
+  }
+</div>

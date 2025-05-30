@@ -1,0 +1,116 @@
+<div class="product-details-container">
+  <!-- Loading State -->
+  @if (loading()) {
+  <div class="loading-state">
+    <div class="spinner"></div>
+    <p>Loading product details...</p>
+  </div>
+  } @else if (error()) {
+  <!-- Error State -->
+  <div class="error-state">
+    <div class="error-icon">⚠️</div>
+    <h3>{{ error() }}</h3>
+    <div class="d-flex gap-2">
+      <button class="btn btn-primary" (click)="goBack()">
+        Back to Products
+      </button>
+    </div>
+  </div>
+  } @else if (product()) {
+  <!-- Product Details -->
+  <div class="product-details">
+    <!-- Header with Back Button -->
+    <div class="details-header">
+      <div class="d-flex justify-content-between">
+        <button class="btn btn-primary" (click)="goBack()">
+          Back to Products
+        </button>
+        <button class="btn btn-secondary" (click)="openEditProductModal()">
+          Edit Product
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Product Content -->
+    <div class="product-content">
+      <!-- Product Image Section -->
+      <div class="product-image-section">
+        <div class="image-container">
+          <img
+            [src]="product()!.image"
+            [alt]="product()!.title"
+            class="product-image"
+          />
+        </div>
+      </div>
+
+      <!-- Product Info Section -->
+      <div class="product-info-section">
+        <!-- Category Badge -->
+        <div class="category-badge">
+          {{ product()!.category }}
+        </div>
+
+        <!-- Product Title -->
+        <h1 class="product-title">{{ product()!.title }}</h1>
+
+        <!-- Rating Section -->
+        <div class="rating-section">
+          <ngb-rating
+            class="rating-stars"
+            [rate]="product()!.rating.rate"
+            [max]="5"
+            [readonly]="true"
+          />
+        </div>
+
+        <!-- Price Section -->
+        <div class="price-section">
+          <span class="price">${{ product()!.price }}</span>
+        </div>
+
+        <!-- Description Section -->
+        <div class="description-section">
+          <h3>Description</h3>
+          <p class="description">{{ product()!.description }}</p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+          <button class="btn btn-primary btn-add-to-cart" (click)="addToCart()">
+            <span class="btn-icon">🛒</span>
+            Add to Cart
+          </button>
+          <button class="btn btn-outline btn-wishlist">
+            <span class="btn-icon">💝</span>
+            Add to Wishlist
+          </button>
+        </div>
+
+        <!-- Product Features -->
+        <div class="product-features">
+          <h3>Product Features</h3>
+          <ul class="features-list">
+            <li>
+              <span class="feature-icon">✓</span>
+              Free shipping on orders over $50
+            </li>
+            <li>
+              <span class="feature-icon">✓</span>
+              30-day return policy
+            </li>
+            <li>
+              <span class="feature-icon">✓</span>
+              Customer support available 24/7
+            </li>
+            <li>
+              <span class="feature-icon">✓</span>
+              Secure payment processing
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  }
+</div>

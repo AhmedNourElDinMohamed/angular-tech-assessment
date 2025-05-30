@@ -1,0 +1,233 @@
+@use "../../../../assets/scss/abstract/variables" as vars;
+
+.product-card {
+  background: vars.$white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-image-wrapper {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+    background: vars.$light;
+
+    .card-img-top {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .card-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(vars.$primary, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+
+      .btn-view-details {
+        background: vars.$white;
+        color: vars.$primary;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-weight: 600;
+        transform: translateY(20px);
+        transition: transform 0.3s ease;
+
+        &:hover {
+          background: vars.$white;
+          color: vars.$primary;
+          transform: translateY(0);
+        }
+      }
+    }
+
+    &:hover {
+      .card-img-top {
+        transform: scale(1.05);
+      }
+
+      .card-overlay {
+        opacity: 1;
+
+        .btn-view-details {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+
+  .card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    .card-header-section {
+      margin-bottom: 12px;
+
+      .card-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: vars.$dark;
+        margin: 0 0 6px 0;
+        line-height: 1.3;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .card-category {
+        background: vars.$secondary;
+        color: vars.$white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+    }
+
+    .card-description {
+      color: #6c757d;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex-grow: 1;
+    }
+
+    .card-rating {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+
+      .stars {
+        display: flex;
+        gap: 2px;
+
+        .star {
+          color: #e4e4e4;
+          font-size: 1rem;
+          transition: color 0.2s ease;
+
+          &.filled {
+            color: #ffc107;
+          }
+        }
+      }
+
+      .rating-text {
+        font-size: 0.85rem;
+        color: #6c757d;
+        font-weight: 500;
+      }
+    }
+
+    .card-footer-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+
+      .price-section {
+        .price {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: vars.$primary;
+        }
+      }
+
+      .btn-add-to-cart {
+        background: vars.$primary;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: darken(vars.$primary, 10%);
+          transform: translateY(-1px);
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .product-card {
+    .card-image-wrapper {
+      height: 200px;
+    }
+
+    .card-body {
+      padding: 16px;
+
+      .card-footer-section {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+
+        .btn-add-to-cart {
+          width: 100%;
+          justify-self: stretch;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .product-card {
+    .card-image-wrapper {
+      height: 180px;
+    }
+
+    .card-body {
+      padding: 12px;
+
+      .card-title {
+        font-size: 1rem;
+      }
+
+      .card-description {
+        font-size: 0.85rem;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+      }
+    }
+  }
+}
