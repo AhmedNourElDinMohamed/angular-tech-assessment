@@ -1,0 +1,46 @@
+// TODO: Use reset css
+
+/* Minimal CSS Reset */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select,
+a {
+    font: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    border: none;
+    background: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background: linear-gradient(180.53deg, rgb(195 187 167 / 30%) -19.36%, #fff 40.57%);
+}

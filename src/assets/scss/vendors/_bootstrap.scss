@@ -1,0 +1,9 @@
+@use "../abstract/variables" as vars;
+
+@use "bootstrap/scss/bootstrap" with (
+  $primary: vars.$primary,
+  $secondary: vars.$secondary,
+  $success: vars.$success,
+  $danger: vars.$danger,
+  $warning: vars.$warning
+);
