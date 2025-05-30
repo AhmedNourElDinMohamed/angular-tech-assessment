@@ -1,0 +1,83 @@
+<div class="not-found-container">
+  <div
+    class="container-fluid vh-100 d-flex align-items-center justify-content-center"
+  >
+    <div class="text-center">
+      <!-- 404 Number Display -->
+      <div class="error-number mb-4">
+        <h1 class="display-1 fw-bold text-primary">404</h1>
+      </div>
+
+      <!-- Error Message -->
+      <div class="error-message mb-4">
+        <h2 class="h3 fw-semibold text-dark mb-3">Oops! Page Not Found</h2>
+        <p class="text-muted fs-5 mb-4">
+          The page you're looking for doesn't exist or has been moved.
+        </p>
+      </div>
+
+      <!-- Illustration -->
+      <div class="illustration mb-5">
+        <div class="error-icon">
+          <svg
+            width="200"
+            height="200"
+            viewBox="0 0 200 200"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <!-- Lost astronaut illustration -->
+            <circle
+              cx="100"
+              cy="100"
+              r="90"
+              fill="#f8f9fa"
+              stroke="#dee2e6"
+              stroke-width="2"
+            />
+            <circle cx="100" cy="80" r="25" fill="#6c757d" />
+            <circle cx="90" cy="75" r="3" fill="#fff" />
+            <circle cx="110" cy="75" r="3" fill="#fff" />
+            <path
+              d="M85 90 Q100 100 115 90"
+              stroke="#fff"
+              stroke-width="2"
+              fill="none"
+            />
+            <rect x="85" y="105" width="30" height="40" rx="5" fill="#0d6efd" />
+            <circle cx="100" cy="160" r="15" fill="#6c757d" />
+            <line
+              x1="85"
+              y1="145"
+              x2="75"
+              y2="165"
+              stroke="#6c757d"
+              stroke-width="3"
+            />
+            <line
+              x1="115"
+              y1="145"
+              x2="125"
+              y2="165"
+              stroke="#6c757d"
+              stroke-width="3"
+            />
+            <!-- Stars -->
+            <circle cx="40" cy="40" r="2" fill="#ffc107" />
+            <circle cx="160" cy="50" r="2" fill="#ffc107" />
+            <circle cx="170" cy="130" r="2" fill="#ffc107" />
+            <circle cx="30" cy="150" r="2" fill="#ffc107" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <a [routerLink]="['/']" class="btn btn-primary btn-lg me-3 px-4">
+          <i class="fas fa-home me-2"></i>
+          Go Home
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
