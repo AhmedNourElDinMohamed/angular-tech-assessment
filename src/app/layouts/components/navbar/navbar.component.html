@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-lg bg-secondary shadow-lg mb-4">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">LOGO</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      (click)="open(content)"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul
+        class="navbar-nav d-flex align-items-center gap-1 ms-auto mb-2 mb-lg-0"
+      >
+        @for (link of navbarLinks(); track link.routerLink) {
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            [routerLink]="link.routerLink"
+            [routerLinkActive]="'active'"
+          >
+            {{ link.label }}
+          </a>
+        </li>
+        }
+        <li class="nav-item">
+          <button
+            class="btn btn-sm btn-outline-primary ms-2"
+            (click)="logout()"
+          >
+            Logout
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<ng-template #content let-offcanvas>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="offcanvas.dismiss('Cross click')"
+  ></button>
+  <div class="offcanvas-body">
+    <ul class="navbar-nav">
+      @for (link of navbarLinks(); track link.routerLink) {
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          aria-current="page"
+          [routerLink]="link.routerLink"
+          [routerLinkActive]="'active'"
+        >
+          {{ link.label }}
+        </a>
+      </li>
+      }
+      <li class="nav-item">
+        <button class="btn btn-sm btn-outline-primary" (click)="logout()">
+          Logout
+        </button>
+      </li>
+    </ul>
+  </div>
+</ng-template>

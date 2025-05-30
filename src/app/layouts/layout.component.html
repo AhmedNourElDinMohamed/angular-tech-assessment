@@ -1,0 +1,18 @@
+<div id="layout-wrapper">
+  <!-- Top Bar -->
+  <app-navbar></app-navbar>
+  <div class="main-content">
+    <div class="page-content">
+      <div class="container-fluid">
+        <!-- Main Content -->
+        <router-outlet></router-outlet>
+        <app-loading-spinner></app-loading-spinner>
+        <p-toast
+          [breakpoints]="{ '920px': { width: '100%', right: '0', left: '0' } }"
+        />
+      </div>
+    </div>
+    <!-- Footer -->
+    <app-footer></app-footer>
+  </div>
+</div>
