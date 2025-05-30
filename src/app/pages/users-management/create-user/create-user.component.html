@@ -1,0 +1,102 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title">Create User</h5>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Form Inputs -->
+      <div class="row g-3">
+        <div class="ps-2">
+          <div class="col-xxl-12 mb-2">
+            <div>
+              <label for="username" class="form-label">Username</label>
+              <input
+                id="username"
+                type="text"
+                class="form-control"
+                placeholder="Product Username"
+                formControlName="username"
+                [class.is-invalid]="username?.invalid && username?.dirty"
+                [class.is-valid]="username?.valid"
+              />
+            </div>
+            <!-- Validation messages -->
+            @if (username?.touched || username?.dirty) {
+            <div>
+              @if (username?.errors?.['required']) {
+              <small class="text-danger"> Username is required.</small>
+              }
+            </div>
+            }
+          </div>
+        </div>
+
+        <div class="col-xxl-12 mb-2">
+          <div>
+            <label for="email" class="form-label">Email</label>
+            <input
+              id="email"
+              type="email"
+              class="form-control"
+              placeholder="User Email"
+              formControlName="email"
+              [class.is-invalid]="email?.invalid && email?.dirty"
+              [class.is-valid]="email?.valid"
+            />
+          </div>
+          <!-- Validation messages -->
+          @if (email?.touched || email?.dirty) {
+          <div>
+            @if (email?.errors?.['required']) {
+            <small class="text-danger">Email is required.</small>
+            }
+          </div>
+          }
+        </div>
+
+        <div class="col-xxl-12 mb-2">
+          <div>
+            <label for="password" class="form-label">Password</label>
+            <input
+              id="password"
+              type="password"
+              class="form-control"
+              placeholder="Password"
+              formControlName="password"
+            />
+          </div>
+
+          <!-- Validation messages -->
+          @if (password?.touched || password?.dirty) {
+          <div>
+            @if (password?.errors?.['required']) {
+            <small class="text-danger">Password is required.</small>
+            }
+          </div>
+          }
+        </div>
+
+        <!-- Form Buttons -->
+        <div class="col-lg-12">
+          <div class="hstack gap-2 justify-content-end">
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="closeModal()"
+            >
+              Close
+            </button>
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="isLoading()"
+            >
+              {{ isLoading() ? "Loading..." : "Submit" }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

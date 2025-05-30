@@ -1,0 +1,112 @@
+<div class="card">
+  <div class="card-header">Users</div>
+  <div class="card-body">
+    <p-table
+      #datatable
+      [columns]="cols"
+      dataKey="id"
+      [value]="users()"
+      [paginator]="true"
+      [rows]="5"
+      [tableStyle]="{ 'min-width': '50rem' }"
+      [rowsPerPageOptions]="[5, 10, 20]"
+      stripedRows
+      [loading]="isLoading()"
+      size="small"
+      responsiveLayout="scroll"
+      [globalFilterFields]="['username', 'email', 'password', 'id']"
+    >
+      <ng-template #caption>
+        <div class="d-flex justify-content-between">
+          <div class="d-flex gap-2">
+            <p-button
+              label="Clear"
+              [outlined]="true"
+              icon="pi pi-filter-slash"
+              (click)="clear(datatable)"
+            />
+            <p-iconfield iconPosition="left" class="ml-auto">
+              <p-inputicon>
+                <i class="pi pi-search"></i>
+              </p-inputicon>
+              <input
+                #searchInput
+                pInputText
+                type="text"
+                (input)="datatable.filterGlobal(searchInput.value, 'contains')"
+                placeholder="Search keyword"
+              />
+            </p-iconfield>
+          </div>
+          <div class="text-end d-flex gap-2">
+            <p-button
+              icon="pi pi-plus"
+              label="Add User"
+              size="small"
+              (click)="createUser()"
+            />
+
+            <p-button
+              icon="pi pi-external-link"
+              label="Export"
+              size="small"
+              (click)="datatable.exportCSV()"
+            />
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template #header>
+        <tr>
+          <th style="width: 25%" pSortableColumn="id">
+            Id
+            <p-sortIcon field="id" />
+          </th>
+          <th style="width: 25%" pSortableColumn="username">
+            Username
+            <p-columnFilter type="text" field="username" display="menu" />
+            <p-sortIcon field="username" />
+          </th>
+          <th style="width: 25%" pSortableColumn="email">
+            Email
+            <p-columnFilter type="text" field="email" display="menu" />
+            <p-sortIcon field="email" />
+          </th>
+          <th style="width: 25%" pSortableColumn="password">
+            Password
+            <p-columnFilter type="text" field="password" display="menu" />
+            <p-sortIcon field="password" />
+          </th>
+
+          <th style="width: 25%">Actions</th>
+        </tr>
+      </ng-template>
+      <ng-template #body let-user>
+        <tr>
+          <td>{{ user.id }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.password }}</td>
+          <td>
+            <div class="d-flex gap-2">
+              <p-button
+                label="Edit"
+                icon="pi pi-pencil"
+                severity="primary"
+                size="small"
+                disabled
+              />
+              <p-button
+                label="Delete"
+                icon="pi pi-trash"
+                severity="danger"
+                size="small"
+                disabled
+              />
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
