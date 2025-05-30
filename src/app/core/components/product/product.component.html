@@ -24,7 +24,7 @@
         <span
           class="star"
           *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
-          [class.filled]="i < getStarRating()"
+          [class.filled]="i < 5"
         >
           ★
         </span>
@@ -38,7 +38,9 @@
       <div class="price-section">
         <span class="price">${{ product().price }}</span>
       </div>
-      <button class="btn btn-primary btn-add-to-cart">Add to Cart</button>
+      <button class="btn btn-primary btn-add-to-cart" (click)="addToCart()">
+        Add to Cart
+      </button>
     </div>
   </div>
 </div>

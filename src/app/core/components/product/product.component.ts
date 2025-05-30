@@ -12,4 +12,12 @@ import { RouterLink } from '@angular/router';
 })
 export class ProductComponent {
   product = input.required<Product>();
+
+  /**
+   * Adds the product to the cart
+   */
+  addToCart(): void {
+    // TODO: Implement add to cart functionality
+    console.log('Adding to cart:', this.product());
+  }
 }
