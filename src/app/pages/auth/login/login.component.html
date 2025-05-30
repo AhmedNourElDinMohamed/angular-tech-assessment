@@ -1,0 +1,56 @@
+<div
+  class="container-fluid d-flex justify-content-center align-items-center min-vh-100"
+>
+  <div class="row w-100">
+    <div class="col-12 col-md-6 col-lg-4 mx-auto">
+      <div class="card shadow">
+        <div class="card-body p-4">
+          <h3 class="card-title text-center mb-4">Login</h3>
+
+          <form (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                placeholder="Enter your username"
+                required
+                [(ngModel)]="username"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="Enter your password"
+                required
+                [(ngModel)]="password"
+              />
+            </div>
+
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="rememberMe" />
+              <label class="form-check-label" for="rememberMe">
+                Remember me
+              </label>
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+
+            <div class="text-center mt-3">
+              <a routerLink="/auth" class="text-decoration-none"
+                >Forgot your password?</a
+              >
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
