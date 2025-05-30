@@ -218,3 +218,12 @@ The application is fully responsive and optimized for:
 - OnPush change detection strategy
 - Optimized bundle size with tree shaking
 - Angular optimization features enabled
+
+## 🎨 Design Notes
+
+> **Note**: The current UI implementation is a basic functional prototype focused on meeting core requirements. While the application is fully responsive and follows basic design principles, it's not a pixel-perfect implementation. The focus was primarily on:
+
+- ✅ Core functionality and business logic
+- ✅ Component architecture and code organization
+- ✅ State management and data flow
+- ✅ Form validation and error handling
