@@ -17,6 +17,9 @@ export class LoginComponent {
   username = signal('');
   password = signal('');
 
+  /**
+   * Handles the submission of the login form
+   */
   onSubmit() {
     this.authService.login();
     this.messageService.add({

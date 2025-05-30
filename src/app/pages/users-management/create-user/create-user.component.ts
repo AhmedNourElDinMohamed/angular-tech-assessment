@@ -30,6 +30,9 @@ export class CreateUserComponent {
     password: ['', [Validators.required]],
   });
 
+  /**
+   * Handles the submission of the user creation form
+   */
   onSubmit() {
     this.isLoading.set(true);
 

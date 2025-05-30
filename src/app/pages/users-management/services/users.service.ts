@@ -28,11 +28,16 @@ export class UsersService {
     );
   }
 
+  /**
+   * Creates a new user by sending a POST request to the API
+   * @param user - The user object to create
+   * @returns Observable of the created User
+   */
   createUser(user: User): Observable<User> {
     return this.http.post<User>(`${ENV.BASE_URL}${APIs.USERS}`, user).pipe(
-      map((user) => {
-        this.usersData.update((users) => [...users, user]);
-        return user;
+      map((createdUser) => {
+        this.usersData.update((users) => [...users, createdUser]);
+        return createdUser;
       })
     );
   }

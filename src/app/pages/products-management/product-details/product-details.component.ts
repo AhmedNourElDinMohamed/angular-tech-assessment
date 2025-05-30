@@ -28,6 +28,9 @@ export class ProductDetailsComponent implements OnInit {
     this.loadProduct();
   }
 
+  /**
+   * Loads the product details by fetching from the service
+   */
   private loadProduct(): void {
     const productId = this.product_id();
     if (!productId || isNaN(Number(productId))) {
@@ -48,6 +51,9 @@ export class ProductDetailsComponent implements OnInit {
       });
   }
 
+  /**
+   * Opens the edit product modal dialog
+   */
   openEditProductModal() {
     this.modalService.open(UpdateProductComponent, {
       size: 'lg',
@@ -59,6 +65,9 @@ export class ProductDetailsComponent implements OnInit {
     this.router.navigate(['/products']);
   }
 
+  /**
+   * Adds the product to the cart
+   */
   addToCart(): void {
     // TODO: Implement add to cart functionality
     const product = this.product();

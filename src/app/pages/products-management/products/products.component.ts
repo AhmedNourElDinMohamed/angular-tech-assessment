@@ -23,6 +23,9 @@ export class ProductsComponent {
     this.getProducts();
   }
 
+  /**
+   * Fetches products from the service and updates the loading state
+   */
   getProducts() {
     this.loadingService.show('Loading products...');
     this.productsService
@@ -34,6 +37,9 @@ export class ProductsComponent {
       .subscribe();
   }
 
+  /**
+   * Opens the create product modal dialog
+   */
   openCreateProductModal() {
     this.modalService.open(CreateProductComponent, {
       size: 'lg',

@@ -34,6 +34,9 @@ export class CreateProductComponent {
     category: ['', [Validators.required]],
   });
 
+  /**
+   * Handles the submission of the product creation form
+   */
   onSubmit() {
     this.isLoading.set(true);
 

@@ -12,8 +12,4 @@ import { RouterLink } from '@angular/router';
 })
 export class ProductComponent {
   product = input.required<Product>();
-
-  getStarRating(): number {
-    return Math.floor(this.product().rating.rate);
-  }
 }
