@@ -40,3 +40,13 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Angular
+.angular/
+
+# Angular CLI
+.angular-cli.json
+.angular-cli.json
+
+#cursor
+.cursor
